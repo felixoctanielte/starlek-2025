@@ -1,3 +1,150 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-gray-100;
+}
+
+.navbar {
+    @apply bg-white shadow-md;
+}
+
+.navbar-logo {
+    @apply text-xl font-bold text-gray-800;
+}
+
+.menu {
+    @apply space-x-6 text-gray-700 font-medium;
+}
+
+.menu-item {
+    @apply hover:text-blue-500;
+}
+
+/* Styling untuk carousel section */
+.carousel-section {
+    @apply relative bg-gray-200 py-12;
+}
+
+.carousel-container {
+    @apply max-w-7xl mx-auto px-4;
+}
+
+.carousel {
+    @apply flex overflow-x-scroll space-x-4;
+}
+
+.carousel-item {
+    @apply bg-gray-300 w-64 h-40 rounded-lg shadow-lg flex-shrink-0;
+}
+
+/* About Us Section */
+.about-us {
+    @apply text-center py-12 px-4;
+}
+
+.section-title {
+    @apply text-3xl font-semibold text-gray-900;
+}
+
+.about-us-logo {
+    @apply mx-auto mt-6 w-32 h-32 object-cover;
+}
+
+.about-us-desc {
+    @apply text-lg text-gray-800 mt-4 max-w-3xl mx-auto;
+}
+
+/* Visi Misi Section */
+.visi-misi {
+    @apply flex justify-between py-12 px-4 bg-gray-100;
+}
+
+.visi, .misi {
+    @apply w-1/2 px-6;
+}
+
+.section-desc {
+    @apply text-lg text-gray-800 mt-4;
+}
+
+/* Add space between sections */
+.about-us-section {
+    @apply mb-12;
+}
+
+.visi-misi-section {
+    @apply mt-12;
+}
+
+/* Make the About Us section visible even after scrolling */
+body {
+    @apply overflow-y-auto;
+}
+
+/* Event Section */
+.event {
+    @apply text-center py-12 px-4;
+}
+
+.event-logo-img {
+    @apply mx-auto mt-6 w-32 h-32 object-cover;
+}
+
+/* Concept, Theme, and Tagline Section */
+.concept, .theme, .tagline {
+    @apply text-center py-12 px-4;
+    @apply bg-gray-200;
+}
+
+.section-subtitle {
+    @apply text-xl font-semibold text-gray-900;
+}
+
+.concept-title, .theme-title, .tagline-title {
+    @apply text-3xl font-bold text-gray-900 mt-4;
+}
+
+.concept-desc, .theme-desc, .tagline-desc {
+    @apply text-lg text-gray-800 mt-4 max-w-3xl mx-auto;
+}
+
+/* Sponsored by Section */
+.sponsored {
+    @apply text-center py-12 px-4;
+    background-color: #f9f9f9; /* Light background for the sponsored section */
+}
+
+.sponsored-title {
+    @apply text-2xl font-semibold text-gray-900 mb-6;
+}
+
+.sponsor-logos {
+    @apply flex flex-wrap justify-center gap-4;
+    /* Flexbox with wrapping for responsive layout */
+}
+
+.sponsor-logo {
+    @apply h-10; /* Default height for logos */
+    object-contain;
+    max-width: 100%;
+}
+
+/* Optionally, adjust logo sizes if there are more than 10 logos */
+@media (max-width: 768px) {
+    .sponsor-logo {
+        @apply h-6; /* Make logos smaller if there's a lot on smaller screens */
+    }
+}
+
+/* Scroll behavior */
+@media (min-width: 1024px) {
+    /* Ensure each section takes 100vh */
+    .about-us-section, .event-section, .concept-section, .theme-section, .tagline-section {
+        @apply h-screen;
+    }
+    .sponsor-logo {
+        @apply h-8; /* Slightly smaller on smaller screens */
+    }
+}
