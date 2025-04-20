@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Divisions</title>
+  <title>Mini Gerda</title>
   @vite('resources/css/app.css')
 </head>
 <body class="bg-cover bg-center bg-no-repeat text-white mb-8" style="background-image: url('{{ asset('images/bg.png') }}');">
@@ -37,7 +37,7 @@
 @endphp
 
 <div>
-    <h1 class="text-3xl font-bold text-center mt-16 mb-8">Divisions</h1>
+    <h1 class="text-3xl font-bold text-center mt-16 mb-8">Nini Gerda</h1>
 </div>
 {{-- Desktop Layout --}}
 <div class="hidden md:flex flex-col items-center justify-center h-screen space-y-4">
@@ -76,19 +76,8 @@
     <div class="p-6 text-center min-w-72 max-w-80 md:max-w-3xl " style="background-image: url('{{ asset('images/bg2.jpg') }}');">
         <img id="modalImage" src="" alt="modal image" class="w-36 h-36 -mt-24 object-contain mx-auto">
         <img id="modalTextImage" src="" class="w-28 h-28 -mt-14 object-contain mx-auto" alt="">
-        @foreach ($groupsProfile as $group)
-            <div class="grid grid-cols-3">
-                @foreach ($group as $image)
-                    <img
-                        class="cursor-pointer w-20 h-20 md:w-24 md:h-24 object-cover rounded-full p-2"
-                        src="{{ asset('images/' . $image) }}"
-                        alt="{{ pathinfo($image, PATHINFO_FILENAME) }}"
-                        onclick="openModal('{{ asset('images/' . $image) }}', '{{ ucfirst(pathinfo($image, PATHINFO_FILENAME)) }} Division')"
-                    >
-                @endforeach
-            </div>
-        @endforeach
-        <button id="closeBtn" class="bg-gray-800 text-white py-1 mt-2 px-4 rounded-full cursor-pointer hover:bg-gray-300 transition-colors">Close</button>
+        <p class="text-sm font-[500] max-w-56 md:max-w-2xl mx-auto text-gray-700 mb-4 -mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, doloribus?</p>
+        <button id="closeBtn" class="bg-gray-800 text-white mt-2 py-1 px-4 rounded-full cursor-pointer hover:bg-gray-300 transition-colors">Close</button>
     </div>
 </div>
 
