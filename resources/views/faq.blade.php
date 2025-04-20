@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" x-data>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlight 2025</title>
+  @vite('resources/css/app.css')
+
+  <!-- Google Font (Mystical Crystal Style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .mystical-font {
+      font-family: 'Cinzel', serif;
+      text-shadow: 0 0 8px rgba(173, 216, 230, 0.7), 0 0 16px rgba(135, 206, 250, 0.8);
+    }
+  </style>
+
+  
+</head>
+<body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
+  <div class="flex flex-col items-center justify-center py-10 px-4">
+
+    <!-- Judul -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+      Frequently Asked Questions
+    </h1>
+
+    <!-- Section FAQ -->
+    <div class="bg-white/10 backdrop-blur-md w-full max-w-4xl p-6 rounded-lg shadow-2xl ring-1 ring-cyan-300/40">
+      @php
+        $faqs = [
+          [
+            'question' => 'BAGAIMANA CARA MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2025?',
+            'answer' => '<ol class="list-decimal list-inside space-y-1">
+                          <li>Buka website resmi Starlight UMN 2024 di www.starlight.umn.ac.id atau klik link di Bio Instagram resmi @starlightumn</li>
+                          <li>Mengisi formulir, lalu persiapkan diri kamu untuk mengikuti audisi Starlight UMN 2024</li>
+                          <li>Jangan lupa untuk selalu pantengin media sosial Starlight UMN 2024 untuk mengetahui jadwal tahap berikutnya!</li>
+                        </ol>',
+          ],
+          [
+            'question' => 'APA KRITERIA DAN SYARAT MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2024?',
+            'answer' => '<ul class="list-disc list-inside space-y-1">
+                          <li>Peserta harus berumur 15-23 pada saat mendaftarkan diri atau kelompok</li>
+                          <li>Peserta belum pernah mendapatkan gelar dalam kategori apapun (seperti juara 1, 2, 3, favorit, dll) di acara STARLIGHT sebelumnya</li>
+                          <li>Peserta mengumpulkan video audisi sesuai deadline dan kriteria yang ditentukan</li>
+                        </ul>',
+          ],
+          [
+            'question' => 'APAKAH PENDAFTARAN STARLIGHT UMN 2024 DIPUNGUT BIAYA?',
+            'answer' => 'Pendaftaran Starlight sebagai individu maupun kelompok akan dipungut biaya sebesar Rp95.000,00 selama masa pre-sale, dan harga normal sebesar Rp100.000,00.',
+          ],
+          [
+            'question' => 'ADA BERAPA BABAK DI STARLIGHT UMN 2024?',
+            'answer' => 'Starlight memiliki 3 babak yang akan diselenggarakan secara offline, mulai dari panggung tertutup sampai ke panggung terbuka dengan audiens yang bertambah setiap babaknya.',
+          ],
+          [
+            'question' => 'APA SAJA KATEGORI YANG DILOMBAKAN?',
+            'answer' => '<ul class="list-disc list-inside space-y-1">
+                          <li>Vokal</li>
+                          <li>Dance</li>
+                          <li>Band</li>
+                          <li>Solo Instrument</li>
+                          <li>Dan kategori spesial lainnya!</li>
+                        </ul>',
+          ],
+          [
+            'question' => 'BAGAIMANA JIKA ADA KENDALA SAAT MENDAFTAR?',
+            'answer' => 'Silakan hubungi panitia melalui Instagram @starlightumn',
+          ],
+          [
+            'question' => 'BISAKAH PESERTA DARI LUAR UMN IKUT SERTA?',
+            'answer' => 'Ya, peserta dari luar UMN juga diperbolehkan mengikuti audisi asalkan memenuhi kriteria usia.',
+          ],
+          [
+            'question' => 'APA SAJA YANG HARUS DIBAWA SAAT BABAK AUDISI LANGSUNG?',
+            'answer' => 'Peserta wajib membawa kartu identitas, bukti pendaftaran, dan peralatan penunjang sesuai kategori lomba.',
+          ],
+          [
+            'question' => 'DIMANA LOKASI AUDISI LANGSUNG BERLANGSUNG?',
+            'answer' => 'Audisi langsung akan dilaksanakan di kampus UMN, Summarecon Serpong. Detail lokasi akan diumumkan lebih lanjut.',
+          ],
+          [
+            'question' => 'BAGAIMANA CARA MENDAPATKAN INFORMASI TERKINI TENTANG STARLIGHT?',
+            'answer' => 'Ikuti Instagram resmi kami di @starlightumn dan pantau website kami secara berkala untuk update terbaru.',
+          ],
+          [
+            'question' => 'APA HADIAH UNTUK PEMENANG STARLIGHT UMN 2025?',
+            'answer' => 'Hadiah menarik termasuk uang tunai, sertifikat, dan kesempatan tampil di acara besar berikutnya!',
+          ],
+          [
+            'question' => 'APA ITU STARLIGHT UMN?',
+            'answer' => 'Starlight UMN adalah ajang pencarian bakat tahunan yang diselenggarakan oleh Universitas Multimedia Nusantara.',
+          ],
+          [
+            'question' => 'KAPAN PENDAFTARAN DIBUKA DAN DITUTUP?',
+            'answer' => 'Pendaftaran dibuka mulai 1 Mei hingga 31 Mei 2025. Jangan sampai ketinggalan!',
+          ],
+        ];
+      @endphp
+
+      @foreach($faqs as $faq)
+        <div x-data="{ open: false }" class="mb-4 border border-cyan-400 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
+          <button @click="open = !open"
+                  class="w-full text-left px-4 py-3 font-semibold mystical-font text-cyan-200 bg-white/10 hover:bg-white/20 focus:outline-none transition-all duration-300 ease-in-out">
+            {{ $faq['question'] }}
+          </button>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-700 transform"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in-out duration-500 transform"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            class="p-4 text-white bg-white/10 rounded-b-lg"
+            x-cloak>
+            {!! $faq['answer'] !!}
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div>
+
+  <!-- Alpine.js -->
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+  {{-- Footer --}}
+  @include('includes.footer')
+</body>
+</html>

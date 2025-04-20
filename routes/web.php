@@ -33,6 +33,10 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::post('/logout', Logout::class)->name('logout'); // Use POST for logout
 Route::get('/logout', Logout::class)->name('logout');
 require __DIR__.'/auth.php';
