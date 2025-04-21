@@ -54,7 +54,7 @@ perkembangan bakat mereka masing masing.
         </div>
 
         <!-- Visi Misi Section -->
-        <div class="visi-misi" style="display: flex; justify-content: space-between; padding-top: 3rem; padding-bottom: 3rem; background-color: #f3f4f6;">
+        <div class="visi-misi" style="display: flex; justify-content: space-between; padding-top: 3rem; padding-bottom: 3rem;">
             <div class="visi" style="width: 50%; padding: 0 1.5rem; text-align: center;">
                 <h2 class="section-title" style="font-size: 1.875rem; font-weight: 600; color: #1f2937;">Vision</h2>
                 <p class="section-desc" style="font-size: 1.125rem; color: #4b5563;">Menciptakan lingkungan Starlight yang positif dan mendukung sehingga dapat menjadi tempat bagi panitia dan peserta untuk menggali potensi dan mengembangkan diri sebaik mungkin.</p>
@@ -74,7 +74,7 @@ perkembangan bakat mereka masing masing.
         </div>
 
         <!-- Concept Section -->
-        <div class="concept-wrapper" style="text-align: center; padding-top: 3rem; padding-bottom: 3rem; background-color: #f3f4f6;">
+        <div class="concept-wrapper" style="text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
             <div class="concept">
                 <h2 class="section-subtitle" style="font-size: 1.25rem; font-weight: 600; color: #1f2937;">Concept</h2>
                 <h1 class="section-title" style="font-size: 1.875rem; font-weight: 700; color: #1f2937; margin-top: 1rem;">Awaken The Magic Within</h1>
