@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Menggunakan background image */
 body {
-    @apply bg-gray-100;
+    @apply bg-cover bg-center;
+    background-image: url("/build/assets/images/web-bg.png");
 }
 
 .navbar {
@@ -39,13 +41,23 @@ body {
     @apply bg-gray-300 w-64 h-40 rounded-lg shadow-lg flex-shrink-0;
 }
 
+/*
+.section-title {
+    @apply text-3xl font-semibold text-gray-900;
+}
+
+.section-desc {
+    @apply text-lg text-gray-800 mt-4;
+}
+
+.section-subtitle {
+    @apply text-xl font-semibold text-gray-900 mb-6;
+}
+*/
+
 /* About Us Section */
 .about-us {
     @apply text-center py-12 px-4;
-}
-
-.section-title {
-    @apply text-3xl font-semibold text-gray-900;
 }
 
 .about-us-logo {
@@ -61,54 +73,69 @@ body {
     @apply flex justify-between py-12 px-4 bg-gray-100;
 }
 
-.visi, .misi {
-    @apply w-1/2 px-6;
+/* Update untuk menjadikan Vision dan Mission rata tengah */
+.visi,
+.misi {
+    @apply w-1/2 px-6 text-center; /* Rata tengah */
+}
+/* Concept Section */
+.concept-wrapper {
+    @apply text-center py-12 px-4 bg-gray-200;
 }
 
-.section-desc {
-    @apply text-lg text-gray-800 mt-4;
+.concept {
+    @apply w-full px-6;
 }
 
-/* Add space between sections */
-.about-us-section {
-    @apply mb-12;
+.concept h2 {
+    @apply text-2xl font-semibold text-gray-900 mb-2;
 }
 
-.visi-misi-section {
-    @apply mt-12;
-}
-
-/* Make the About Us section visible even after scrolling */
-body {
-    @apply overflow-y-auto;
-}
-
-/* Event Section */
-.event {
-    @apply text-center py-12 px-4;
-}
-
-.event-logo-img {
-    @apply mx-auto mt-6 w-32 h-32 object-cover;
-}
-
-/* Concept, Theme, and Tagline Section */
-.concept, .theme, .tagline {
-    @apply text-center py-12 px-4;
-    @apply bg-gray-200;
-}
-
-.section-subtitle {
-    @apply text-xl font-semibold text-gray-900;
-}
-
-.concept-title, .theme-title, .tagline-title {
+.concept h1 {
     @apply text-3xl font-bold text-gray-900 mt-4;
 }
 
-.concept-desc, .theme-desc, .tagline-desc {
+.concept p {
     @apply text-lg text-gray-800 mt-4 max-w-3xl mx-auto;
 }
+
+/* Theme and Tagline Section */
+.theme-tagline {
+    @apply flex justify-between items-start w-full px-4 mt-12;
+}
+
+.theme,
+.tagline {
+    @apply w-1/3 px-6; /* Membuat Theme dan Tagline sejajar */
+    @apply flex flex-col items-center;
+    /* Menambahkan space antara item */
+    @apply space-y-4;
+}
+
+.theme h2,
+.tagline h2 {
+    @apply text-2xl font-semibold text-gray-900 mb-2;
+}
+
+.theme h1,
+.tagline h1 {
+    @apply text-3xl font-bold text-gray-900 mt-4;
+}
+
+.theme p,
+.tagline p {
+    @apply text-lg text-gray-800 mt-4 max-w-3xl mx-auto;
+}
+
+/*
+.theme-title, .tagline-title {
+    @apply text-3xl font-bold text-gray-900 mt-4;
+}
+
+.theme-desc, .tagline-desc {
+    @apply text-lg text-gray-800 mt-4 max-w-3xl mx-auto;
+}
+*/
 
 /* Sponsored by Section */
 .sponsored {
@@ -127,7 +154,7 @@ body {
 
 .sponsor-logo {
     @apply h-10; /* Default height for logos */
-    object-contain;
+    @apply object-contain;
     max-width: 100%;
 }
 
@@ -141,10 +168,14 @@ body {
 /* Scroll behavior */
 @media (min-width: 1024px) {
     /* Ensure each section takes 100vh */
-    .about-us-section, .event-section, .concept-section, .theme-section, .tagline-section {
+    .about-us,
+    .event,
+    .concept,
+    .theme,
+    .tagline {
         @apply h-screen;
     }
-    .sponsor-logo {
+    .sponsor-logos {
         @apply h-8; /* Slightly smaller on smaller screens */
     }
 }
