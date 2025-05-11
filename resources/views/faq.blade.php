@@ -121,8 +121,6 @@
         class="w-full text-left px-4 py-3 font-semibold question-font text-cyan-200 bg-white/10 hover:bg-white/20 focus:outline-none transition-all duration-300 ease-in-out">
   {{ $faq['question'] }}
 </button>
-
-
           <div
             x-show="open"
             x-transition:enter="transition ease-out duration-700 transform"

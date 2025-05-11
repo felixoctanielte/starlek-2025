@@ -126,8 +126,7 @@ body {
 }
 
 .sponsor-logo {
-    @apply h-10; /* Default height for logos */
-    object-contain;
+    @apply h-10 object-contain; /* Default height and contain object */
     max-width: 100%;
 }
 
@@ -140,11 +139,10 @@ body {
 
 /* Scroll behavior */
 @media (min-width: 1024px) {
-    /* Ensure each section takes 100vh */
     .about-us-section, .event-section, .concept-section, .theme-section, .tagline-section {
         @apply h-screen;
     }
     .sponsor-logo {
-        @apply h-8; /* Slightly smaller on smaller screens */
+        @apply h-8 object-contain;
     }
 }
