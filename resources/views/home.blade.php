@@ -1,5 +1,4 @@
-@extends('layouts.navbar')
-@section('content')
+@include('includes.navbar')
 
 <!DOCTYPE html>
 <html lang="en">

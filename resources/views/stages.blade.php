@@ -1,3 +1,4 @@
+@include('includes.navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,6 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
-    <nav class="p-4 bg-red-500 text-white flex justify-around">
-        <a href="/home">Home</a>
-        <a href="/division">Divisi</a>
-        <a href="/stages">Stages</a>
-    </nav>
     
     <div class="mt-6 text-center">
         <h1 class="text-2xl font-bold">Tahapan Acara</h1>
