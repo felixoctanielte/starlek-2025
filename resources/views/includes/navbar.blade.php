@@ -41,7 +41,7 @@ return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-w
 }
 @endphp
 
-<nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 cinzel bg-[#2442AE]/30 backdrop-blur-[12px] saturate-200 shadow-lg border-b border-white/20 transition-all duration-500">
+<nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 cinzel nav-solid transition-all duration-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-22">
             <!-- Logo -->
