@@ -21,6 +21,10 @@ Route::get('/division', function () {
     return view('division');
 })->name('division');
 
+Route::get('/stages', function () {
+    return view('stages');
+})->name('stages');
+
 Route::get('/register', function () {
     return view('register');
 })->name('register');
