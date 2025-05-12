@@ -80,7 +80,7 @@ return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-w
                 @if (!$loop->last)
                 <span class="text-white pointer-events-none select-none">|</span>
                 @endif
-              endforeach
+              @endforeach
             </div>
         </div>
     </div>
