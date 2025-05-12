@@ -1,5 +1,6 @@
 @include('includes.navbar')
 
+
 <!DOCTYPE html>
 <html lang="en" x-data>
 <head>
@@ -36,7 +37,9 @@
 
 </head>
 <body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
-  <div class="flex flex-col items-center justify-center py-10 px-4">
+ 
+  
+  <div class="flex flex-col items-center justify-center py-10 px-4  pt-24">
 
     <!-- Judul -->
     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">

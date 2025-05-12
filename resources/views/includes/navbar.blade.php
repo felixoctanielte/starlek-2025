@@ -1,6 +1,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <!-- Google Font: Cinzel -->
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -18,8 +19,7 @@
         -webkit-background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-    }
-
+        
     .nav-solid {
         background: linear-gradient(90deg, #1E3A8A 0%, #1D4ED8 30%);
         transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
@@ -32,6 +32,7 @@
         transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
     }
 </style>
+ 
 
 @php
 function activeClass($route) {
@@ -40,6 +41,17 @@ return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-w
 @endphp
 
 <nav id="main-navbar" class="fixed top-0 left-0 right-0 nav-solid shadow-md z-50 cinzel transition-all duration-500 ease-in-out">
+=======
+</style>
+
+@php
+    function activeClass($route) {
+        return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-white';
+    }
+@endphp
+
+
+<nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 cinzel bg-[#2442AE]/30 backdrop-blur-[12px] saturate-200 shadow-lg border-b border-white/20 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-22">
             <!-- Logo -->
@@ -78,10 +90,12 @@ return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-w
                 @if (!$loop->last)
                 <span class="text-white pointer-events-none select-none">|</span>
                 @endif
-                @endforeach
+              endforeach
             </div>
         </div>
     </div>
+
+             
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-[#2442AE] shadow-md cinzel">
@@ -103,11 +117,12 @@ return request()->routeIs($route) ? 'text-[#A5F3FC] after:scale-x-100' : 'text-w
     </div>
 </nav>
 
+
 <script>
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const navbar = document.getElementById('main-navbar');
-
+    
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
