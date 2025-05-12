@@ -19,7 +19,8 @@
         -webkit-background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-        
+    }
+    
     .nav-solid {
         background: linear-gradient(90deg, #1E3A8A 0%, #1D4ED8 30%);
         transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
