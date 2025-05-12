@@ -26,19 +26,19 @@
     }
 @endphp
 
-<nav class="fixed top-0 left-0 right-0 bg-[#2442AE] shadow-md z-50 cinzel">
+<nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 cinzel bg-[#2442AE]/30 backdrop-blur-[12px] saturate-200 shadow-lg border-b border-white/20 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-22">
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/starlight.png') }}" alt="Starlight Logo" class="h-16 w-22">
+                    <img src="{{ asset('assets/images/sl_glow.png') }}" alt="Starlight Logo" class="h-16 w-22">
                 </a>
             </div>
 
             <!-- Hamburger Button -->
             <div class="flex md:hidden">
-                <button id="menu-toggle" class="text-white hover:text-blue-500 focus:outline-none focus:text-blue-500">
+                <button id="menu-toggle" class="text-white hover:text-blue-300 focus:outline-none">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -71,7 +71,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-[#2442AE] shadow-md cinzel">
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 bg-[#2442AE]/30 backdrop-blur-[12px] saturate-200 shadow-md border-t border-white/20">
         @foreach ([
             'home' => 'Homepage',
             'division' => 'Division',
@@ -89,6 +89,27 @@
         @endforeach
     </div>
 </nav>
+
+<script>
+    // Toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Scroll-based blur effect
+    const navbar = document.getElementById('main-navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) {
+            navbar.classList.add('backdrop-blur-[20px]', 'bg-[#2442AE]/20');
+        } else {
+            navbar.classList.remove('backdrop-blur-[20px]', 'bg-[#2442AE]/20');
+        }
+    });
+</script>
 
 <script>
     const menuToggle = document.getElementById('menu-toggle');
