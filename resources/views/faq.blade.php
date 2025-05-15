@@ -10,6 +10,7 @@
 
   <!-- Link Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 
   <style>
     .mystical-font {
@@ -48,15 +49,29 @@
     }
   </style>
 </head>
-<body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
+<body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/bg_panjaang.png') }}'); background-attachment: fixed;">
+
+<style>
+  @media (max-width: 640px) {
+    body {
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+  }
+</style>
+
+
   
   <div x-init="$el.classList.add('page-enter'); setTimeout(() => $el.classList.add('page-enter-active'), 50)"
        class="flex flex-col items-center justify-center py-10 px-4 pt-24">
 
     <!-- Judul -->
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-      <br>Frequently Asked Questions<br><br>
-    </h1>
+     
+<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)] text-center">
+  <br>Frequently Asked Questions<br><br>
+</h1>
+
 
     <!-- Section FAQ -->
     <div class="bg-white/10 backdrop-blur-md w-full max-w-4xl p-6 rounded-lg shadow-2xl ring-1 ring-cyan-300/40">
@@ -64,7 +79,7 @@
         $faqs = [
           [
             'question' => 'DIMANA LOKASI AUDISI LANGSUNG BERLANGSUNG?',
-            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi tempat audisi.',
+            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi Tempat audisi.',
           ],
           [
             'question' => 'BAGAIMANA CARA MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2025?',
@@ -132,7 +147,7 @@
       @endphp
 
       @foreach($faqs as $faq)
-      <div x-data="{ open: false }" class="mb-1 border border-cyan-400 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
+<div x-data="{ open: false }" class="mb-1 border border-cyan-400 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
 
 
 
@@ -140,10 +155,12 @@
                   class="w-full text-left px-4 py-3 font-semibold question-font text-cyan-200 bg-white/10 hover:bg-white/20 focus:outline-none transition-all duration-300 ease-in-out">
             {{ $faq['question'] }}
           </button>
-          
-          <div x-ref="answer"
-               :class="open ? 'faq-answer open' : 'faq-answer'"
-               class="p-4 text-white bg-white/10 rounded-b-lg">
+<div x-ref="answer"
+     :class="open ? 'faq-answer open' : 'faq-answer'"
+     class="p-4 text-white bg-white/10 rounded-b-lg font-normal"
+     style="font-family: 'ABeeZee', sans-serif;">
+
+
             {!! $faq['answer'] !!}
           </div>
         </div>
