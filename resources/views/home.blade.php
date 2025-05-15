@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @keyframes slide {
             0% { transform: translateX(0); }
@@ -51,7 +51,7 @@
     </style>
 </head>
 <body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('assets/images/backgrounds.png');">
-<section class="min-h-screen flex flex-col items-center justify-center bg-cover bg-center relative">
+<section class="flex flex-col items-center justify-center bg-cover bg-center relative">
 <div>
 <!-- Sponsored by Section -->
 <div class="h-screen scroll-mt-20 relative w-full h-[700px] overflow-hidden">
@@ -103,7 +103,7 @@
 </section>
 
    <!-- About Us Section -->
-   <section class="min-h-screen flex flex-col items-center justify-center fade-in">
+   <section class="flex flex-col items-center justify-center fade-in">
        <div class="about-us text-center py-12">
             <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mt-10 mb-2 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 About Us
@@ -117,7 +117,7 @@
             <h2 class="text-3xl font-bold text-white  mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 What is Starlight?
             </h2>
-            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 Starlight adalah salah satu kegiatan mahasiswa yang dinaungi Badan Eksekutif Mahasiswa (BEM)
                 Universitas Multimedia Nusantara untuk mewadahi serta menyalurkan minat dan bakat individu.
                 Kegiatan Mahasiswa Starlight mengupayakan dorongan bagi masyarakat untuk percaya akan
@@ -125,36 +125,37 @@
             </p>
         </div>
         </section>
-   
-    <section class="min-h-screen flex flex-col items-center justify-center fade-in">
-        <div class="flex flex-col md:flex-row justify-center items-start px-4 py-12 gap-8">
+
+<!-- Vision & Mission Section -->
+<section class="flex flex-col items-center justify-center fade-in">
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8 px-4 py-12">
         <!-- Vision -->
         <div class="w-full md:w-1/2 flex flex-col items-center text-center px-4">
-        <h1 class="text-3xl font-bold text-white mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-            VISION
-        </h1>
-        <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-md">
-                Menciptakan lingkungan Starlight yang positif dan mendukung sehingga dapat menjadi tempat bagi panitia dan peserta untuk menggali potensi dan mengembangkan diri sebaik mungkin.
+            <h1 class="text-3xl font-bold text-white mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+                VISION
+            </h1>
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-md shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+                Menciptakan lingkungan Starlight yang positif dan mendukung sehingga
+                dapat menjadi tempat bagi panitia dan peserta untuk menggali potensi
+                dan mengembangkan diri sebaik mungkin.
             </p>
         </div>
-        
 
         <!-- Mission -->
         <div class="w-full md:w-1/2 flex flex-col items-center text-center px-4">
-        <h1 class="text-3xl font-bold text-white mt-10 mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-            MISSION
-        </h1>
-        <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-md">
-                Memberikan wadah bagi setiap individu di UMN dan di luar UMN yang ingin menunjukan bakat terbaik mereka.
+            <h1 class="text-3xl font-bold text-white mt-10 mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+                MISSION
+            </h1>
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-md shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+                Memberikan wadah bagi setiap individu di UMN dan
+                di luar UMN yang ingin menunjukan bakat terbaik mereka.
             </p>
         </div>
     </div>
-    </section>
-            
-
+</section>
 
     <!-- Event Name and Logo -->
-    <section class="min-h-screen flex flex-col items-center justify-center fade-in">
+    <section class="flex flex-col items-center justify-center fade-in">
     <div class="event text-center py-12">
          <h1 class="text-3xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mt-10 mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 <br>Starlight 2025<br><br>
@@ -168,7 +169,7 @@
     </section>
 
    <!-- Concept Section -->
-   <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 fade-in">
+   <section class="flex flex-col items-center justify-center text-center px-4 fade-in">
 <div class="flex justify-center  px-4 py-12">
     <div class="w-full md:w-3/4 lg:w-2/3 px-6 text-center flex flex-col items-center justify-center">
         <h3 class="text-2xl font-normal text-white mb-4 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
@@ -177,7 +178,7 @@
         <h1 class="text-3xl sm:text-3xl md:text-4xl font-semibold text-white mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
             Awaken The Magic Within
         </h1>
-        <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+        <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
             Bakat digambarkan sebagai kristal magis yang terhubung dengan elemen alam dan kekuatan dalam diri.
             Di mana peserta diajak untuk menyadari potensi luar biasa dalam diri mereka dan memperlihatkan "keajaiban" itu kepada dunia.
             Perjalanan peserta layaknya menjelajahi misteri, menemukan harmoni, dan membangkitkan kekuatan sejati mereka.
@@ -187,53 +188,47 @@
 </section>
 
 
-    <!-- Theme & Tagline Section -->
-    <section class="min-h-screen flex flex-col md:flex-row justify-between items-stretch gap-8 px-4 py-12 fade-in">
-    <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 px-4 py-12">
-        <!-- Theme -->
-        <div class="w-full md:w-1/2 flex flex-col px-6 items-center text-center md:text-left">
-            <h3 class="text-2xl font-normal text-white mt-10 mb-2 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-                THEME
-            </h3>
-            <h1 class="text-3xl sm:text-3xl md:text-4xl font-semibold text-white  mt-2 mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-                MYSTICAL CRYSTAL
-            </h1>
-            <div class="flex-grow flex items-start w-full">
-                <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
-                    Mystical Crystal adalah sebuah tempat pencari bakat mistik yang menggambarkan bakat individu
+<!-- Theme & Tagline Section -->
+<section class="flex flex-col md:flex-row justify-between items-center gap-8 px-4 py-12 fade-in">
+    <!-- Theme -->
+    <div class="w-full md:w-1/2 flex flex-col px-6 items-center text-center md:text-left">
+        <h3 class="text-2xl font-normal text-white mt-10 mb-2 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+            THEME
+        </h3>
+        <h1 class="text-3xl sm:text-3xl md:text-4xl font-semibold text-white mt-2 mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+            MYSTICAL CRYSTAL
+        </h1>
+        <div class="flex-grow flex items-start w-full">
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+                Mystical Crystal adalah sebuah tempat pencari bakat mistik yang menggambarkan bakat individu
                     dalam diri mereka layaknya kristal. Setiap kristal memiliki potensi unik yang menunggu untuk
                     ditemukan, diasah, dan bersinar terang. Tema ini bertujuan untuk menggali potensi terbaik
                     dari setiap peserta, memberikan mereka kesempatan untuk berkembang, dan memukau dunia dengan keunikan mereka.
-                </p>
-            </div>
-        </div>
-
-        <!-- Tagline -->
-        <div class="w-full md:w-1/2 flex flex-col px-6 items-center text-center md:text-right">
-            <h3 class="text-2xl font-normal text-white  mt-4 mb-2 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-                TAGLINE
-            </h3>
-            <h1 class="text-3xl sm:text-3xl md:text-4xl font-semibold text-white mt-2 mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-                IGNITE YOUR SPIRIT, SHOW ITS RADIANCE
-            </h1>
-            <div class="flex-grow flex items-start w-full">
-                <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
-                    Tagline ini mengajak setiap orang untuk membangkitkan semangat, potensi,
-                    dan energi dalam diri mereka. Berani mencoba membuat percikan. Walaupun
-                    percikan itu kecil, nantinya dari percikan tersebut akan bersinar terang
-                    dan mereka bisa menunjukkan “terang” tersebut ke dunia.
-                </p>
-            </div>
+            </p>
         </div>
     </div>
-    </section>
 
-
-
-
+    <!-- Tagline -->
+    <div class="w-full md:w-1/2 flex flex-col px-6 items-center text-center md:text-right">
+        <h3 class="text-2xl font-normal text-white mt-4 mb-2 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+            TAGLINE
+        </h3>
+        <h1 class="text-3xl sm:text-3xl md:text-4xl font-semibold text-white mt-2 mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
+            IGNITE YOUR SPIRIT, SHOW ITS RADIANCE
+        </h1>
+        <div class="flex-grow flex items-start w-full">
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+                Tagline ini mengajak setiap orang untuk membangkitkan semangat, potensi,
+                dan energi dalam diri mereka. Berani mencoba membuat percikan. Walaupun
+                percikan itu kecil, nantinya dari percikan tersebut akan bersinar terang
+                dan mereka bisa menunjukkan “terang” tersebut ke dunia.
+            </p>
+        </div>
+    </div>
+</section>
 
  <!-- Sponsored by Section -->
- <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 fade-in">
+ <section class="flex flex-col items-center justify-center text-center px-4 fade-in">
 <div class="flex flex-col justify-center items-center gap-8 px-4 py-12">
     
     <!-- Title & Description -->
