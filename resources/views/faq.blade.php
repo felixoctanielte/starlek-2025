@@ -10,6 +10,7 @@
 
   <!-- Link Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 
   <style>
     .mystical-font {
@@ -78,7 +79,7 @@
         $faqs = [
           [
             'question' => 'DIMANA LOKASI AUDISI LANGSUNG BERLANGSUNG?',
-            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi tempat audisi.',
+            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi Tempat audisi.',
           ],
           [
             'question' => 'BAGAIMANA CARA MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2025?',
@@ -156,7 +157,9 @@
           </button>
 <div x-ref="answer"
      :class="open ? 'faq-answer open' : 'faq-answer'"
-     class="p-4 text-white bg-white/10 rounded-b-lg font-normal">
+     class="p-4 text-white bg-white/10 rounded-b-lg font-normal"
+     style="font-family: 'ABeeZee', sans-serif;">
+
 
             {!! $faq['answer'] !!}
           </div>
