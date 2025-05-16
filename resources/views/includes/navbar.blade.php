@@ -22,15 +22,17 @@
     }
     
     .nav-solid {
-        background: linear-gradient(90deg, #1E3A8A 0%, #1D4ED8 30%);
-        transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+        background: blur(0px);
+        backdrop-filter: blur(0px);
+        background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+        shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
 
     .nav-transparent {
         background-color: rgba(36, 66, 174, 0.4);
         backdrop-filter: blur(10px);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+        
     }
 </style>
  

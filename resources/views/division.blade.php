@@ -41,7 +41,7 @@
   <div id="center" class="relative w-full h-full transition-transform duration-500">
     @foreach($groups as $group)
     <div
-      class="item absolute cursor-pointer transform-gpu transition-transform duration-300 ease-in-out"
+      class="item absolute cursor-pointer transform-gpu transition-transform duration-600 ease-in-out"
       data-id="{{ $group['id'] }}"
       onclick="rotateTo({{ $group['id'] }}, '{{ $group['image'] }}', '{{ $group['description'] }}')"
       id="item-{{ $group['id'] }}"
@@ -178,13 +178,7 @@
 </script>
 
 
-    <body class="flex flex-col bg-gray-100 min-h-screen">
-    <h1 class="text-2xl font-bold mt-6">DIVISION</h1>
-    <p class="mt-2 text-center">Menampilkan wajah anggota tiap divisi dengan efek animasi</p>
-    <div class="w-full h-40 bg-blue-200 mt-4 flex items-center justify-center">
-        <p class="text-lg font-semibold">Motion & Animasi Ornamen</p>
-    </div>
-    </body>
+  
 
     {{-- Footer --}}
     @include('includes.footer')
