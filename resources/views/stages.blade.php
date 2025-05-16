@@ -245,10 +245,10 @@ $stages = array(
     ),
 );
 
-// buat trigger sound tiap unlock
-$hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
-?>
-
+    // buat trigger sound tiap unlock
+    $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
+    ?>
+<body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('assets/images/backgrounds.png');">
     
     <!-- Audio controls -->
     <div class="audio-controls">
@@ -404,10 +404,7 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
         </div>
     </section>
 
-    <!-- FOOTER (placeholder) -->
-    <footer class="p-4 bg-white/70 text-center text-sm text-gray-800">
-        Footer dsini ngikut yg homepage aj
-    </footer>
+  
 
     <script>
         // Sound settings
@@ -575,5 +572,8 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
             <?php endif; ?>
         });
     </script>
+
+     {{-- Footer --}}
+    @include('includes.footer')
 </body>
 </html>
