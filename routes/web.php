@@ -33,6 +33,14 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+Route::get('/stages', function () {
+    return view('stages');
+});
+
+Route::get('/nivara', function () {
+    return view('nivara');
+});
+
 Route::post('/logout', Logout::class)->name('logout'); // Use POST for logout
 Route::get('/logout', Logout::class)->name('logout');
 require __DIR__.'/auth.php';
