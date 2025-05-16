@@ -3,15 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Actions\Logout;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IstharaController;
+use App\Http\Controllers\VotingController;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
-
-// Admin Dashboard
-Route::get('/adminpanel', [AdminController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('adminpanel');
 
 Route::get('/home', function () {
     return view('home');
@@ -42,10 +39,22 @@ Route::get('/stages/nivara', function () {
     return view('nivara');
 })->name ('nivara');
 
+Route::get('/profile', function () {
+    return 'Dummy profile route'; 
+})->name('profile');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('isthara', IstharaController::class);
+});
+
+Route::post('/voting/{id}', [VotingController::class, 'vote'])->name('vote');
+Route::get('/voting', [VotingController::class, 'index'])->name('voting.index');
+
+Route::get('/voting/results', [VotingController::class, 'results'])->name('voting.results');
 
 Route::post('/logout', Logout::class)->name('logout'); // Use POST for logout
 Route::get('/logout', Logout::class)->name('logout');
