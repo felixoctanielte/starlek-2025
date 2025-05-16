@@ -26,31 +26,31 @@ class LoginForm extends Form
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate()
     {
         $this->ensureIsNotRateLimited();
-    
+
         if (!Auth::attempt($this->only(['email', 'password']), $this->remember)) {
             RateLimiter::hit($this->throttleKey());
-    
+
             throw ValidationException::withMessages([
                 'form.email' => trans('auth.failed'),
             ]);
         }
-    
+
         RateLimiter::clear($this->throttleKey());
-    
+
         // Ambil user yang sedang login
         $user = Auth::user();
-    
+
         // Redirect berdasarkan role
         if ($user->role === 'admin') {
-            redirect()->route('adminpanel'); // Admin diarahkan ke /adminpanel
+            return redirect()->route('admin.isthara.index');
         } else {
-            redirect()->route('home'); // User biasa diarahkan ke /home
+            return redirect()->route('home');
         }
     }
-    
+
 
     /**
      * Ensure the authentication request is not rate limited.
@@ -78,6 +78,6 @@ class LoginForm extends Form
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->email) . '|' . request()->ip());
     }
 }
