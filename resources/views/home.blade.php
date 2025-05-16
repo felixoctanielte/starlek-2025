@@ -199,7 +199,7 @@
             MYSTICAL CRYSTAL
         </h1>
         <div class="flex-grow flex items-start w-full">
-            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 Mystical Crystal adalah sebuah tempat pencari bakat mistik yang menggambarkan bakat individu
                     dalam diri mereka layaknya kristal. Setiap kristal memiliki potensi unik yang menunggu untuk
                     ditemukan, diasah, dan bersinar terang. Tema ini bertujuan untuk menggali potensi terbaik
@@ -217,7 +217,7 @@
             IGNITE YOUR SPIRIT, SHOW ITS RADIANCE
         </h1>
         <div class="flex-grow flex items-start w-full">
-            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto">
+            <p class="text-lg font-normal font-sans text-slate-200 mt-4 max-w-3xl mx-auto shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
                 Tagline ini mengajak setiap orang untuk membangkitkan semangat, potensi,
                 dan energi dalam diri mereka. Berani mencoba membuat percikan. Walaupun
                 percikan itu kecil, nantinya dari percikan tersebut akan bersinar terang
