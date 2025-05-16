@@ -1,144 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Divisions</title>
   @vite('resources/css/app.css')
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-cover bg-center bg-no-repeat text-white mb-8" style="background-image: url('{{ asset('images/bg.png') }}');">
+<body class="bg-cover h-screen bg-center bg-no-repeat text-white" style="background-image: url('{{ asset('images/bg.png') }}');">
 
-@php
-    // Desktop layout
-    $groupsDesktop = [
-        ['amarok.png', 'dwarves.png', 'eirlys.png'],
-        ['fairy.png', 'griffin.png', 'heidrun.png', 'jotunn.png', 'lindworm.png'],
-        ['odin.png', 'pegasus.png', 'raven.png', 'unicorn.png', 'valkyrie.png'],
-    ];
+  @php
+  $groups = [
+    ['id' => 1, 'image' => 'amarok.png', 'description' => 'A mighty wolf with great power.'],
+    ['id' => 2, 'image' => 'dwarves.png', 'description' => 'Skilled miners and craftsmen.'],
+    ['id' => 3, 'image' => 'eirlys.png', 'description' => 'A magical being with ice powers.'],
+    ['id' => 4, 'image' => 'fairy.png', 'description' => 'A mischievous forest dweller.'],
+    ['id' => 5, 'image' => 'griffin.png', 'description' => 'A majestic creature with the body of a lion and wings of an eagle.'],
+    ['id' => 6, 'image' => 'heidrun.png', 'description' => 'A divine goat that produces mead.'],
+    ['id' => 7, 'image' => 'jotunn.png', 'description' => 'A giant from the cold mountains.'],
+    ['id' => 8, 'image' => 'lindworm.png', 'description' => 'A serpentine creature with great speed.'],
+    ['id' => 9, 'image' => 'odin.png', 'description' => 'The all-father, the ruler of Asgard.'],
+    ['id' => 10, 'image' => 'pegasus.png', 'description' => 'A winged horse known for its grace and speed.'],
+    ['id' => 11, 'image' => 'raven.png', 'description' => 'A symbol of knowledge and wisdom.'],
+    ['id' => 12, 'image' => 'unicorn.png', 'description' => 'A legendary horse with a single, spiraling horn.'],
+    ['id' => 13, 'image' => 'valkyrie.png', 'description' => 'A warrior maiden serving Odin.'],
+  ];
+  @endphp
 
-    // Mobile layout
-    $groupsMobile = [
-        ['amarok.png', 'dwarves.png'],
-        [
-            'fairy.png', 'griffin.png', 'heidrun.png',
-            'jotunn.png', 'lindworm.png', 'eirlys.png',
-            'odin.png', 'pegasus.png', 'raven.png',
-        ],
-        ['unicorn.png', 'valkyrie.png'],
-    ];
-
-    // Profile
-    $groupsProfile = [
-        ['profile1.jpg', 'profile1.jpg', 'profile1.jpg'],
-        ['profile1.jpg', 'profile1.jpg', 'profile1.jpg'],
-        ['profile1.jpg', 'profile1.jpg', 'profile1.jpg'],
-    ];
-
-@endphp
-
-<div>
-    <h1 class="text-3xl font-bold text-center mt-16 mb-8">Divisions</h1>
-</div>
-{{-- Desktop Layout --}}
-<div class="hidden md:flex flex-col items-center justify-center h-screen space-y-4">
-    @foreach ($groupsDesktop as $group)
-        <div class="grid {{ count($group) === 3 ? 'grid-cols-3' : 'grid-cols-5' }} gap-4">
-            @foreach ($group as $image)
-                <img
-                    class="cursor-pointer w-28 h-28 md:w-56 md:h-56 object-contain"
-                    src="{{ asset('images/' . $image) }}"
-                    alt="{{ pathinfo($image, PATHINFO_FILENAME) }}"
-                    onclick="openModal('{{ asset('images/' . $image) }}', '{{ ucfirst(pathinfo($image, PATHINFO_FILENAME)) }} Division')"
-                >
-            @endforeach
-        </div>
-    @endforeach
-</div>
-
-{{-- Mobile Layout --}}
-<div class="flex md:hidden flex-col items-center justify-center h-screen space-y-4">
-    @foreach ($groupsMobile as $group)
-        <div class="grid {{ count($group) <= 2 ? 'grid-cols-2' : 'grid-cols-3' }}">
-            @foreach ($group as $image)
-                <img
-                    class="cursor-pointer w-32 h-32 md:w-56 md:h-56 object-contain"
-                    src="{{ asset('images/' . $image) }}"
-                    alt="{{ pathinfo($image, PATHINFO_FILENAME) }}"
-                    onclick="openModal('{{ asset('images/' . $image) }}', '{{ ucfirst(pathinfo($image, PATHINFO_FILENAME)) }} Division')"
-                >
-            @endforeach
-        </div>
-    @endforeach
-</div>
-
-{{-- Modal --}}
-<div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="p-6 text-center min-w-72 max-w-80 md:max-w-3xl " style="background-image: url('{{ asset('images/bg2.jpg') }}');">
-        <img id="modalImage" src="" alt="modal image" class="w-36 h-36 -mt-24 object-contain mx-auto">
-        <img id="modalTextImage" src="" class="w-28 h-28 -mt-14 object-contain mx-auto" alt="">
-        @foreach ($groupsProfile as $group)
-            <div class="grid grid-cols-3">
-                @foreach ($group as $image)
-                    <img
-                        class="cursor-pointer w-20 h-20 md:w-24 md:h-24 object-cover rounded-full p-2"
-                        src="{{ asset('images/' . $image) }}"
-                        alt="{{ pathinfo($image, PATHINFO_FILENAME) }}"
-                        onclick="openModal('{{ asset('images/' . $image) }}', '{{ ucfirst(pathinfo($image, PATHINFO_FILENAME)) }} Division')"
-                    >
-                @endforeach
-            </div>
-        @endforeach
-        <button id="closeBtn" class="bg-gray-800 text-white py-1 mt-2 px-4 rounded-full cursor-pointer hover:bg-gray-300 transition-colors">Close</button>
+  <!-- Carousel -->
+  <div class="relative w-full h-full overflow-hidden">
+  <div
+  id="circleWrapper"
+  class="absolute left-1/2 top -bottom-[46%] md:-bottom-[55%] -translate-x-1/2 -translate-y-0
+         lg:-left-[40%] lg:top-1/2 lg:translate-x-0 lg:-translate-y-1/2
+         w-[90vw] h-[90vw] max-w-[800px] max-h-[800px] flex items-center justify-center"
+>
+  <div id="center" class="relative w-full h-full transition-transform duration-500">
+    @foreach($groups as $group)
+    <div
+      class="item absolute cursor-pointer transform-gpu transition-transform duration-300 ease-in-out"
+      data-id="{{ $group['id'] }}"
+      onclick="rotateTo({{ $group['id'] }}, '{{ $group['image'] }}', '{{ $group['description'] }}')"
+      id="item-{{ $group['id'] }}"
+      style="width: 120px; height: 120px;"  {{-- Smaller for mobile --}}
+      lg:style="width: 280px; height: 280px;" {{-- Larger for desktop --}}
+    >
+      <img
+        src="{{ asset('images/' . $group['image']) }}"
+        alt="{{ $group['image'] }}"
+        class="w-full h-full object-cover rounded-full"
+      />
     </div>
+    @endforeach
+  </div>
+</div>
 </div>
 
-<script>
-    const textImageMap = {
-    amarok: "{{ asset('images/amarok_text.png') }}",
-    dwarves: "{{ asset('images/dwarves_text.png') }}",
-    eirlys: "{{ asset('images/eirlys_text.png') }}",
-    fairy: "{{ asset('images/fairy_text.png') }}",
-    griffin: "{{ asset('images/griffin_text.png') }}",
-    heidrun: "{{ asset('images/heidrun_text.png') }}",
-    jotunn: "{{ asset('images/jotunn_text.png') }}",
-    lindworm: "{{ asset('images/lindworm_text.png') }}",
-    odin: "{{ asset('images/odin_text.png') }}",
-    pegasus: "{{ asset('images/pegasus_text.png') }}",
-    raven: "{{ asset('images/raven_text.png') }}",
-    unicorn: "{{ asset('images/unicorn_text.png') }}",
-    valkyrie: "{{ asset('images/valkyrie_text.png') }}",
-  };
-  // Open the modal muahahaha
-  function openModal(imageSrc, title) {
-  document.getElementById("modalImage").src = imageSrc;
+  <!-- Image Display + Description -->
+<div class="absolute top-[20%] left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:top-28 lg:left-auto lg:right-[4%] z-50 mx-auto lg:mx-0">
+  <div class="w-[50vh] lg:w-full max-w-[500px] lg:max-w-[700px] aspect-[7/5] bg-cover bg-center relative mx-auto flex flex-col items-center justify-center gap-4 p-4"
+     style="background-image: url('{{ asset('images/bg1.jpg') }}');">
+  <!-- Description -->
+  <!-- Selected Image -->
+  <img
+  id="imageContainer"
+  class="w-[350px] h-[200px] lg:w-[500px] lg:h-[300px] object-cover object-center rounded-lg shadow-lg border border-white "
+  alt="Selected image"
+  />
+  <div id="imageDescription" class="text-white text-lg p-4 w-full">
+    Description will appear here.
+  </div>
+</div>
+  </div>
 
-  // Extract filename without extension (e.g., 'amarok')
-  const fileName = imageSrc.split('/').pop().split('.')[0];
+  <!-- Script -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".item");
+    const totalItems = items.length;
+    const sectionDeg = 360 / totalItems;
+    const radianSectionDeg = sectionDeg * Math.PI / 180;
 
-  // Update text image based on the mapping
-  const textImgSrc = textImageMap[fileName];
-  document.getElementById("modalTextImage").src = textImgSrc || "";
-
-  const modal = document.getElementById("modal");
-  modal.classList.remove("opacity-0", "pointer-events-none");
-  modal.classList.add("opacity-100", "pointer-events-auto");
-}
-  // Close the modal muahahaha
-  document.getElementById("closeBtn").onclick = function() {
-    const modal = document.getElementById("modal");
-    modal.classList.remove("opacity-100", "pointer-events-auto");
-    modal.classList.add("opacity-0", "pointer-events-none");
-  }
-
-  // Close the modal if clicking outside of the content area muahaha
-  window.onclick = function(event) {
-    if (event.target === document.getElementById("modal")) {
-      const modal = document.getElementById("modal");
-      modal.classList.remove("opacity-100", "pointer-events-auto");
-      modal.classList.add("opacity-0", "pointer-events-none");
+    function getRadius() {
+    if (window.innerWidth < 768) {
+        // Mobile
+        return 240;
+    } else if (window.innerWidth < 1024) {
+        // Tablet (md)
+        return 420;
+    } else {
+        // Desktop (lg and up)
+        return 520;
     }
-  }
+    }
+    function getItemSize() {
+    if (window.innerWidth < 768) {
+        return 100;
+    } else if (window.innerWidth < 1024) {
+        return 180;
+    } else {
+        return 280;
+    }
+    }
+    function getSelectedAngleOffset() {
+    // Desktop: right (0deg), Tablet: top (-90deg), Mobile: top (-90deg)
+    return window.innerWidth < 1024 ? -Math.PI / 2 : 0;
+    }
+
+    let currentIndex = 8; // Odin as default
+
+    function positionItems() {
+  const radiusLength = getRadius();
+  const itemSize = getItemSize();
+  const angleOffset = getSelectedAngleOffset();
+  items.forEach((item, i) => {
+    const angle = radianSectionDeg * (i - currentIndex) + angleOffset;
+    const x = radiusLength * Math.cos(angle);
+    const y = radiusLength * Math.sin(angle);
+    item.style.position = "absolute";
+    item.style.left = "50%";
+    item.style.top = "50%";
+    item.style.width = `${itemSize}px`;
+    item.style.height = `${itemSize}px`;
+    item.style.transform = `translate(${x - itemSize / 2}px, ${y - itemSize / 2}px) scale(${i === currentIndex ? 1.5 : 1})`;
+    item.style.zIndex = i === currentIndex ? 10 : 1;
+  });
+}
+
+    window.turnLeft = () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      positionItems();
+      autoUpdateSelected();
+    };
+
+    window.turnRight = () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      positionItems();
+      autoUpdateSelected();
+    };
+
+    window.rotateTo = (targetId, image, description) => {
+      const targetIndex = Array.from(items).findIndex(item => item.dataset.id == targetId);
+      if (targetIndex !== -1) {
+        currentIndex = targetIndex;
+        positionItems();
+
+        const imageContainer = document.getElementById('imageContainer');
+        const imageDescription = document.getElementById('imageDescription');
+
+        imageContainer.src = `{{ asset('images') }}/${image}`;
+        imageContainer.alt = image;
+        imageDescription.textContent = description;
+      }
+    };
+
+    function autoUpdateSelected() {
+      const selectedItem = items[currentIndex];
+      const image = selectedItem.querySelector('img').src.split('/').pop();
+      const description = selectedItem.getAttribute('onclick').match(/'(.*?)'$/)[1];
+      document.getElementById('imageContainer').src = `{{ asset('images') }}/${image}`;
+      document.getElementById('imageContainer').alt = image;
+      document.getElementById('imageDescription').textContent = description;
+    }
+
+    // Initial positioning and selection
+    positionItems();
+    rotateTo(9, 'odin.png', 'The all-father, the ruler of Asgard.');
+
+    // Reposition items on resize
+    window.addEventListener('resize', () => {
+      positionItems();
+    });
+  });
 </script>
+
 
 </body>
 </html>
