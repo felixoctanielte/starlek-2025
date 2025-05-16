@@ -37,7 +37,7 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
-    <div class="mb-4 text-sm text-gray-600">
+    <div class="mb-4 text-sm text-white">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
 
@@ -45,17 +45,36 @@ new #[Layout('layouts.guest')] class extends Component
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form wire:submit="sendPasswordResetLink">
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <!-- Email Address -->
+    <div>
+        <x-input-label for="email" />
+        <x-text-input 
+            wire:model="email" 
+            id="email" 
+            class="block mt-1 w-full 
+                   bg-white/20 text-white 
+                   placeholder-white/70 
+                   border border-white/30 
+                   backdrop-blur-md 
+                   focus:ring-2 focus:ring-white 
+                   focus:outline-none 
+                   rounded-lg"
+            type="email" 
+            name="email" 
+            placeholder="Your Email"
+            required 
+            autofocus 
+        />
+        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
+    <!-- Button Centered with Glass Style -->
+    <div class="flex justify-center mt-6">
+        <x-primary-button 
+            class="bg-white text-gray-800 hover:bg-gray-100 font-semibold px-6 py-2 rounded-lg shadow-md transition duration-200"
+        >
+            {{ __('Email Password Reset Link') }}
+        </x-primary-button>
+    </div>
+</form>
 </div>

@@ -1,3 +1,5 @@
+@include('includes.navbar')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="bg-cover h-screen bg-center bg-no-repeat text-white" style="background-image: url('{{ asset('images/bg.png') }}');">
 
   @php
@@ -174,6 +177,17 @@
   });
 </script>
 
+
+    <body class="flex flex-col bg-gray-100 min-h-screen">
+    <h1 class="text-2xl font-bold mt-6">DIVISION</h1>
+    <p class="mt-2 text-center">Menampilkan wajah anggota tiap divisi dengan efek animasi</p>
+    <div class="w-full h-40 bg-blue-200 mt-4 flex items-center justify-center">
+        <p class="text-lg font-semibold">Motion & Animasi Ornamen</p>
+    </div>
+    </body>
+
+    {{-- Footer --}}
+    @include('includes.footer')
 
 </body>
 </html>
