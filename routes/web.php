@@ -38,9 +38,9 @@ Route::get('/faq', function () {
 })->name('faq');
 
 
-Route::get('/nivara', function () {
+Route::get('/stages/nivara', function () {
     return view('nivara');
-});
+})->name ('nivara');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

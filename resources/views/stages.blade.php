@@ -219,7 +219,7 @@ $stages = array(
         'lock_crack' => 'nivara_lock_crack',
         'unlocked' => $isStage1Unlocked, 
         'just' => $justUnlockedStage1, 
-        'link' => '/nivara'
+        'link' => '/stages/nivara'
     ),
     array(
         'title_unlocked' => 'lumora',
