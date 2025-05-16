@@ -21,6 +21,10 @@ Route::get('/division', function () {
     return view('division');
 })->name('division');
 
+Route::get('/stages', function () {
+    return view('stages');
+})->name('stages');
+
 Route::get('/register', function () {
     return view('register');
 })->name('register');
@@ -33,13 +37,15 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
-Route::get('/stages', function () {
-    return view('stages');
-});
 
 Route::get('/nivara', function () {
     return view('nivara');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 Route::post('/logout', Logout::class)->name('logout'); // Use POST for logout
 Route::get('/logout', Logout::class)->name('logout');

@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'My Application') }}</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/" wire:navigate>
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="bg-cover bg-center bg-no-repeat text-gray-900 font-inter antialiased" style="background-image: url('{{ asset('/build/assets/images/web-bg.png') }}')">
+    <div class="min-h-screen flex items-center justify-center backdrop-blur-sm">
+        <div class="max-w-lg w-full bg-blue-200/30 backdrop-blur-md rounded-2xl shadow-2xl p-8 space-y-6 border border-white/20">
+            
+            <!-- Back Button Icon -->
+            <a href="{{ route('home') }}" class="absolute left-4 top-4 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </a>
+            
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-white drop-shadow">
+                    @if (Request::is('register'))
+                        Register
+                    @elseif (Request::is('login'))
+                        Login
+                    @else
+                        My Application
+                    @endif
+                </h1>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="space-y-4">
                 {{ $slot }}
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
+
 </html>

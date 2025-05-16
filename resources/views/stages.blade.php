@@ -1,76 +1,4 @@
-<?php
-// Calculate timestamp buat buka stage
-$unlockPreEvent = strtotime('2025-05-15 10:00:00'); // Pre-event unlocked
-$unlockStage1 = strtotime('2025-05-15 10:00:00'); // Stage 1 unlocked buat testing dlu
-$unlockStage2 = strtotime('2025-06-22 10:00:00'); // recent unlock buat tes animasi
-$unlockStage3 = strtotime('2025-06-25 10:00:00'); // locked
-$now = time();
-
-$isPreEventUnlocked = $now >= $unlockPreEvent;
-$isStage1Unlocked = $now >= $unlockStage1;
-$isStage2Unlocked = $now >= $unlockStage2;
-$isStage3Unlocked = $now >= $unlockStage3;
-
-// cek stagenya baru di unlock/udh lama (24 jam trkhir)
-// mastiin tiap unlock ada animasi
-$justUnlockedPreEvent = $now - $unlockPreEvent < 86400 && $now >= $unlockPreEvent;
-$justUnlockedStage1 = $now - $unlockStage1 < 86400 && $now >= $unlockStage1;
-$justUnlockedStage2 = $now - $unlockStage2 < 86400 && $now >= $unlockStage2;
-$justUnlockedStage3 = $now - $unlockStage3 < 86400 && $now >= $unlockStage3;
-
-// Pre-event stage
-$preEvent = array(
-    'title_unlocked' => 'luminous_crystal',
-    'title_locked' => 'luminous_crystal_locked',
-    'chain' => 'luminous_crystal_chain',
-    'lock' => 'luminous_crystal_lock',
-    'chain_crack' => 'luminous_crystal_chain_crack',
-    'lock_crack' => 'luminous_crystal_lock_crack',
-    'unlocked' => $isPreEventUnlocked, 
-    'just' => $justUnlockedPreEvent, 
-    'link' => '/luminous-crystal'
-);
-
-// Main stages
-$stages = array(
-    array(
-        'title_unlocked' => 'nivara',
-        'title_locked' => 'nivara_locked',
-        'chain' => 'nivara_chain',
-        'lock' => 'nivara_lock',
-        'chain_crack' => 'nivara_chain_crack',
-        'lock_crack' => 'nivara_lock_crack',
-        'unlocked' => $isStage1Unlocked, 
-        'just' => $justUnlockedStage1, 
-        'link' => '/nivara'
-    ),
-    array(
-        'title_unlocked' => 'lumora',
-        'title_locked' => 'lumora_locked',
-        'chain' => 'lumora_chain',
-        'lock' => 'lumora_lock',
-        'chain_crack' => 'lumora_chain_crack',
-        'lock_crack' => 'lumora_lock_crack',
-        'unlocked' => $isStage2Unlocked, 
-        'just' => $justUnlockedStage2, 
-        'link' => '/lumora'
-    ),
-    array(
-        'title_unlocked' => 'ascendance',
-        'title_locked' => 'ascendance_locked',
-        'chain' => 'ascendance_chain',
-        'lock' => 'ascendance_lock',
-        'chain_crack' => 'ascendance_chain_crack',
-        'lock_crack' => 'ascendance_lock_crack',
-        'unlocked' => $isStage3Unlocked, 
-        'just' => $justUnlockedStage3, 
-        'link' => '/ascendance'
-    ),
-);
-
-// buat trigger sound tiap unlock
-$hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
-?>
+@include('includes.navbar')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -245,10 +173,82 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
         }
     </style>
 </head>
-<body class="bg-cover bg-center bg-fixed min-h-screen" style="background-image: url('/images/bg-stage.png')">
-    <!-- SOUND EFFECT -->
-    <audio id="crackSound" src="/sounds/crack.mp3" preload="auto"></audio>
-    <audio id="hoverSound" src="/sounds/hover.mp3" preload="auto"></audio>
+
+
+<?php
+// Calculate timestamp buat buka stage
+$unlockPreEvent = strtotime('2025-05-15 10:00:00'); // Pre-event unlocked
+$unlockStage1 = strtotime('2025-05-15 10:00:00'); // Stage 1 unlocked buat testing dlu
+$unlockStage2 = strtotime('2025-06-22 10:00:00'); // recent unlock buat tes animasi
+$unlockStage3 = strtotime('2025-06-25 10:00:00'); // locked
+$now = time();
+
+$isPreEventUnlocked = $now >= $unlockPreEvent;
+$isStage1Unlocked = $now >= $unlockStage1;
+$isStage2Unlocked = $now >= $unlockStage2;
+$isStage3Unlocked = $now >= $unlockStage3;
+
+// cek stagenya baru di unlock/udh lama (24 jam trkhir)
+// mastiin tiap unlock ada animasi
+$justUnlockedPreEvent = $now - $unlockPreEvent < 86400 && $now >= $unlockPreEvent;
+$justUnlockedStage1 = $now - $unlockStage1 < 86400 && $now >= $unlockStage1;
+$justUnlockedStage2 = $now - $unlockStage2 < 86400 && $now >= $unlockStage2;
+$justUnlockedStage3 = $now - $unlockStage3 < 86400 && $now >= $unlockStage3;
+
+// Pre-event stage
+$preEvent = array(
+    'title_unlocked' => 'luminous_crystal',
+    'title_locked' => 'luminous_crystal_locked',
+    'chain' => 'luminous_crystal_chain',
+    'lock' => 'luminous_crystal_lock',
+    'chain_crack' => 'luminous_crystal_chain_crack',
+    'lock_crack' => 'luminous_crystal_lock_crack',
+    'unlocked' => $isPreEventUnlocked, 
+    'just' => $justUnlockedPreEvent, 
+    'link' => '/luminous-crystal'
+);
+
+// Main stages
+$stages = array(
+    array(
+        'title_unlocked' => 'nivara',
+        'title_locked' => 'nivara_locked',
+        'chain' => 'nivara_chain',
+        'lock' => 'nivara_lock',
+        'chain_crack' => 'nivara_chain_crack',
+        'lock_crack' => 'nivara_lock_crack',
+        'unlocked' => $isStage1Unlocked, 
+        'just' => $justUnlockedStage1, 
+        'link' => '/nivara'
+    ),
+    array(
+        'title_unlocked' => 'lumora',
+        'title_locked' => 'lumora_locked',
+        'chain' => 'lumora_chain',
+        'lock' => 'lumora_lock',
+        'chain_crack' => 'lumora_chain_crack',
+        'lock_crack' => 'lumora_lock_crack',
+        'unlocked' => $isStage2Unlocked, 
+        'just' => $justUnlockedStage2, 
+        'link' => '/lumora'
+    ),
+    array(
+        'title_unlocked' => 'ascendance',
+        'title_locked' => 'ascendance_locked',
+        'chain' => 'ascendance_chain',
+        'lock' => 'ascendance_lock',
+        'chain_crack' => 'ascendance_chain_crack',
+        'lock_crack' => 'ascendance_lock_crack',
+        'unlocked' => $isStage3Unlocked, 
+        'just' => $justUnlockedStage3, 
+        'link' => '/ascendance'
+    ),
+);
+
+// buat trigger sound tiap unlock
+$hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
+?>
+
     
     <!-- Audio controls -->
     <div class="audio-controls">
