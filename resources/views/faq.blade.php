@@ -1,6 +1,5 @@
 @include('includes.navbar')
 
-
 <!DOCTYPE html>
 <html lang="en" x-data>
 <head>
@@ -9,42 +8,70 @@
   <title>Starlight 2025 faq</title>
   @vite('resources/css/app.css')
 
-<!-- Link Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  <!-- Link Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+
+  <style>
+    .mystical-font {
+      font-family: 'Cinzel Decorative', serif !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      text-shadow: 0 0 8px rgba(173, 216, 230, 0.7), 0 0 16px rgba(135, 206, 250, 0.8);
+      letter-spacing: 1px;
+    }
+
+    .question-font {
+      font-family: serif;
+    }
+
+    /* Animasi masuk halaman */
+    .page-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .page-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 1s ease;
+    }
+
+    /* Animasi buka-tutup FAQ */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .faq-answer.open {
+      max-height: 1000px; /* cukup besar untuk semua konten */
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/bg_panjaang.png') }}'); background-attachment: fixed;">
 
 <style>
-  .mystical-font {
-    font-family: 'Cinzel Decorative', serif !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    text-shadow: 0 0 8px rgba(173, 216, 230, 0.7), 0 0 16px rgba(135, 206, 250, 0.8);
-    letter-spacing: 1px;
+  @media (max-width: 640px) {
+    body {
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
   }
-
-    /* animasi masuk web */
-    .opacity-0 { opacity: 0; }
-    .opacity-100 { opacity: 1; }
-    .scale-95 { transform: scale(0.95); }
-    .scale-100 { transform: scale(1); }
-    .transition { transition: all 1s ease; }
-
-.question-font {
-  font-family: serif;
-}
 </style>
 
 
-
-</head>
-<body class="bg-no-repeat bg-cover min-h-screen text-white" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
- 
   
-  <div class="flex flex-col items-center justify-center py-10 px-4  pt-24">
+  <div x-init="$el.classList.add('page-enter'); setTimeout(() => $el.classList.add('page-enter-active'), 50)"
+       class="flex flex-col items-center justify-center py-10 px-4 pt-24">
 
     <!-- Judul -->
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-    <br>  Frequently Asked Questions <br><br>
-    </h1>
+     
+<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-6 mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)] text-center">
+  <br>Frequently Asked Questions<br><br>
+</h1>
+
 
     <!-- Section FAQ -->
     <div class="bg-white/10 backdrop-blur-md w-full max-w-4xl p-6 rounded-lg shadow-2xl ring-1 ring-cyan-300/40">
@@ -52,7 +79,7 @@
         $faqs = [
           [
             'question' => 'DIMANA LOKASI AUDISI LANGSUNG BERLANGSUNG?',
-            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi tempat audisi.',
+            'answer' => 'Audisi langsung akan dilaksanakan di rumah orang random, pantengin aja bisa jadi rumah kamu yang jadi Tempat audisi.',
           ],
           [
             'question' => 'BAGAIMANA CARA MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2025?',
@@ -100,7 +127,6 @@
             'question' => 'APA SAJA YANG HARUS DIBAWA SAAT BABAK AUDISI LANGSUNG?',
             'answer' => 'Peserta wajib membawa kartu identitas, bukti pendaftaran, dan peralatan penunjang sesuai kategori lomba.',
           ],
-
           [
             'question' => 'BAGAIMANA CARA MENDAPATKAN INFORMASI TERKINI TENTANG STARLIGHT?',
             'answer' => 'Ikuti Instagram resmi kami di @starlightumn dan pantau website kami secara berkala untuk update terbaru.',
@@ -121,21 +147,20 @@
       @endphp
 
       @foreach($faqs as $faq)
-        <div x-data="{ open: false }" class="mb-4 border border-cyan-400 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
-        <button @click="open = !open"
-        class="w-full text-left px-4 py-3 font-semibold question-font text-cyan-200 bg-white/10 hover:bg-white/20 focus:outline-none transition-all duration-300 ease-in-out">
-  {{ $faq['question'] }}
-</button>
-          <div
-            x-show="open"
-            x-transition:enter="transition ease-out duration-700 transform"
-            x-transition:enter-start="opacity-0 -translate-y-2"
-            x-transition:enter-end="opacity-100 translate-y-0"
-            x-transition:leave="transition ease-in-out duration-500 transform"
-            x-transition:leave-start="opacity-100 translate-y-0"
-            x-transition:leave-end="opacity-0 -translate-y-2"
-            class="p-4 text-white bg-white/10 rounded-b-lg"
-            x-cloak>
+<div x-data="{ open: false }" class="mb-1 border border-cyan-400 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
+
+
+
+          <button @click="open = !open"
+                  class="w-full text-left px-4 py-3 font-semibold question-font text-cyan-200 bg-white/10 hover:bg-white/20 focus:outline-none transition-all duration-300 ease-in-out">
+            {{ $faq['question'] }}
+          </button>
+<div x-ref="answer"
+     :class="open ? 'faq-answer open' : 'faq-answer'"
+     class="p-4 text-white bg-white/10 rounded-b-lg font-normal"
+     style="font-family: 'ABeeZee', sans-serif;">
+
+
             {!! $faq['answer'] !!}
           </div>
         </div>
@@ -145,19 +170,6 @@
 
   <!-- Alpine.js -->
   <script src="//unpkg.com/alpinejs" defer></script>
-
-  <!-- Animasi Saat Pertama Kali Dibuka -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.querySelector('body > div');
-      container.classList.add('opacity-0', 'scale-95', 'transition');
-
-      requestAnimationFrame(() => {
-        container.classList.remove('opacity-0', 'scale-95');
-        container.classList.add('opacity-100', 'scale-100');
-      });
-    });
-  </script>
 
   {{-- Footer --}}
   @include('includes.footer')
