@@ -12,7 +12,7 @@ class VotingController extends Controller
 
     public function index()
     {
-        $startTime = Carbon::parse('2025-05-16 21:15:00'); // Atur waktu mulai voting
+        $startTime = Carbon::parse('2025-05-16 22:27:00'); // Atur waktu mulai voting
         $istharas = Isthara::all(); // Ambil semua kandidat
 
         if (Carbon::now()->lt($startTime)) {
