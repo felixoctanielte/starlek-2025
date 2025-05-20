@@ -29,57 +29,42 @@
 <body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
 <div>
 <!-- Sponsored by Section -->
-<div class="relative w-full h-[700px] overflow-hidden">
-
-    <!-- Background Image -->
-    <img src="{{ asset('assets/images/adit.jpg') }}"
-         alt="Sponsor Background"
-         class="absolute inset-0 w-full h-full object-cover z-0" />
+<div class="relative w-full h-[700px] overflow-hidden bg-cover bg-center"
+     style="background-image: url('{{ asset('assets/images/lindworm_text.png') }}')">
 
     <!-- Overlay Content Full Height with content at bottom -->
     <div class="relative z-10 h-full flex flex-col px-4">
 
         <!-- Title & Subtitle -->
         <div class="text-center text-white mt-auto">
-            <h1 class="text-3xl font-bold mystical-font shimmer drop-shadow-[0_0_20px_rgba(0,255,255,0.8)]">
-                SPONSORED BY
-            </h1>
+           
         </div>
 
-        <!-- Carousel: Sticky to bottom -->
-<div class="mt-4 w-full overflow-hidden">
-    <div class="carousel-container mx-auto max-w-screen-xl px-4">
-        <div class="carousel-track flex gap-6 w-max animate-marquee">
-            @php
-                $sponsors = [
-                    'umnlogobiru.png',
-                    'umnlogobiru.png',
-                    'umnlogobiru.png',
-                    'umnlogobiru.png'
-                ];
-            @endphp
+        <!-- Sponsor Cards Carousel -->
+        <div class="mt-6 w-full overflow-hidden">
+            <div class="flex gap-6 flex-wrap justify-center items-center px-4 max-w-screen-xl mx-auto">
+                @php
+                    $sponsors = [
+                        'umnlogobiru.png',
+                        'umnlogobiru.png',
+                        'umnlogobiru.png',
+                        'umnlogobiru.png'
+                    ];
+                @endphp
 
-            @foreach ($sponsors as $index => $sponsor)
-            <div class="carousel-item w-[200px] aspect-[4/3] flex-shrink-0 overflow-hidden rounded-lg shadow-md
-                        {{ $loop->index === 1 ? 'simulate-hover' : '' }}">
-                <img src="{{ asset('assets/images/' . $sponsor) }}" alt="Sponsor"
-                    class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform scale-110 filter blur-sm hover:scale-100 hover:blur-none">
+                @foreach ($sponsors as $index => $sponsor)
+                    <div class="w-[180px] h-[140px] bg-white/10 rounded-2xl overflow-hidden shadow-lg
+                                transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
+                        <img src="{{ asset('assets/images/' . $sponsor) }}" alt="Sponsor {{ $index }}"
+                             class="w-full h-full object-contain p-4 transition-all duration-500 filter blur-sm hover:blur-none" />
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-
-            {{-- Duplicate for infinite scroll --}}
-            @foreach ($sponsors as $sponsor)
-                <div class="carousel-item w-[200px] aspect-[4/3] flex-shrink-0 overflow-hidden rounded-lg shadow-md">
-                    <img src="{{ asset('assets/images/' . $sponsor) }}" alt="Sponsor Duplicate"
-                         class="w-full h-full object-cover transition-transform duration-500 ease-in-out transform scale-110 filter blur-sm hover:scale-100 hover:blur-none">
-                </div>
-            @endforeach
         </div>
     </div>
 </div>
 
-    </div>
-</div>
+
 
 <style>
     @keyframes marquee {
