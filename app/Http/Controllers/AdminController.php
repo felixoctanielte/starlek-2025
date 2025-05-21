@@ -13,7 +13,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             // Cek role pengguna
             if (Auth::user()->role === 'admin') {
-                return view('adminpanel'); // Tampilkan view untuk admin
+                return view('admin.isthara.index'); // Tampilkan view untuk admin
             } else {
                 return redirect()->route('home')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
             }

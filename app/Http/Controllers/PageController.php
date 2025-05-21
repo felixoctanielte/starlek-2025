@@ -30,7 +30,4 @@ class PageController extends Controller
         return view('adminpanel');
     }
 
-    public function profile() {
-        return view('profile');
-    }
 }

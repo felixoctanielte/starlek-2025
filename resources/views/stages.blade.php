@@ -219,7 +219,7 @@ $stages = array(
         'lock_crack' => 'nivara_lock_crack',
         'unlocked' => $isStage1Unlocked, 
         'just' => $justUnlockedStage1, 
-        'link' => '/nivara'
+        'link' => '/stages/nivara'
     ),
     array(
         'title_unlocked' => 'lumora',
@@ -245,10 +245,10 @@ $stages = array(
     ),
 );
 
-// buat trigger sound tiap unlock
-$hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
-?>
-
+    // buat trigger sound tiap unlock
+    $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUnlockedStage2 || $justUnlockedStage3;
+    ?>
+<body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('assets/images/backgrounds.png');">
     
     <!-- Audio controls -->
     <div class="audio-controls">
@@ -266,12 +266,6 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
         </button>
     </div>
 
-    <!-- HEADER / NAVIGATION (placeholder) -->
-    <nav class="p-4 bg-transparent-500 text-white flex flex-wrap justify-center gap-6 text-lg">
-        <a href="/home" class="hover:underline">Home</a>
-        <a href="/division" class="hover:underline">Divisi</a>
-        <a href="/stages" class="hover:underline font-bold">Stages</a>
-    </nav>
 
     <!-- PRE-EVENT SECTION -->
     <section class="container mx-auto px-4 mb-20 mt-20">
@@ -404,10 +398,7 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
         </div>
     </section>
 
-    <!-- FOOTER (placeholder) -->
-    <footer class="p-4 bg-white/70 text-center text-sm text-gray-800">
-        Footer dsini ngikut yg homepage aj
-    </footer>
+  
 
     <script>
         // Sound settings
@@ -575,5 +566,8 @@ $hasNewlyUnlockedStage = $justUnlockedPreEvent || $justUnlockedStage1 || $justUn
             <?php endif; ?>
         });
     </script>
+
+     {{-- Footer --}}
+    @include('includes.footer')
 </body>
 </html>
