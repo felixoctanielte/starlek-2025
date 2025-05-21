@@ -28,45 +28,86 @@
     </style>
 </head>
 <body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('assets/images/backgrounds.png');">
-<section class="flex flex-col items-center justify-center bg-cover bg-center relative">
-<div>
-<!-- Sponsored by Section -->
-<div class="relative w-full h-[700px] overflow-hidden bg-cover bg-center"
-     style="background-image: url('{{ asset('assets/images/lindworm_text.png') }}')">
 
-    <!-- Overlay Content Full Height with content at bottom -->
-    <div class="relative z-10 h-full flex flex-col px-4">
+<!-- Carousel Stacked Card Style -->
+<section class="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
+  <div id="carousel-stack" class="relative w-[300px] h-[450px] cursor-pointer">
 
-        <!-- Title & Subtitle -->
-        <div class="text-center text-white mt-auto">
-           
-        </div>
-
-        <!-- Sponsor Cards Carousel -->
-        <div class="mt-6 w-full overflow-hidden">
-            <div class="flex gap-6 flex-wrap justify-center items-center px-4 max-w-screen-xl mx-auto">
-                @php
-                    $sponsors = [
-                        'umnlogobiru.png',
-                        'umnlogobiru.png',
-                        'umnlogobiru.png',
-                        'umnlogobiru.png'
-                    ];
-                @endphp
-
-                @foreach ($sponsors as $index => $sponsor)
-                    <div class="w-[180px] h-[140px] bg-white/10 rounded-2xl overflow-hidden shadow-lg
-                                transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
-                        <img src="{{ asset('assets/images/' . $sponsor) }}" alt="Sponsor {{ $index }}"
-                             class="w-full h-full object-contain p-4 transition-all duration-500 filter blur-sm hover:blur-none" />
-                    </div>
-                @endforeach
-            </div>
-        </div>
+    <!-- Card Template (3 Cards) -->
+    <div class="carousel-card absolute top-0 left-[-160px] w-[250px] h-[375px] rounded-2xl border border-cyan-200/30 bg-white/5 backdrop-blur-md
+                shadow-xl rotate-[-5deg] z-10 transition-all duration-700 opacity-60 scale-[0.95]">
+      <img src="{{ asset('assets/images/card1.jpeg') }}" class="w-full h-full object-cover rounded-2xl" />
     </div>
-</div>
 
+    <div class="carousel-card absolute top-0 left-0 w-[300px] h-[450px] rounded-2xl border-2 border-cyan-300 bg-white/10 backdrop-blur-md
+                shadow-2xl z-30 transition-all duration-700 scale-100">
+      <img src="{{ asset('assets/images/card2.jpeg') }}" class="w-full h-full object-cover rounded-2xl" />
+      <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-cyan-100/10 to-white/0 pointer-events-none"></div>
+    </div>
 
+    <div class="carousel-card absolute top-0 right-[-160px] w-[250px] h-[375px] rounded-2xl border border-cyan-200/30 bg-white/5 backdrop-blur-md
+                shadow-xl rotate-[5deg] z-10 transition-all duration-700 opacity-60 scale-[0.95]">
+      <img src="{{ asset('assets/images/card3.jpeg') }}" class="w-full h-full object-cover rounded-2xl" />
+    </div>
+
+  </div>
+</section>
+
+<!-- Carousel Animation -->
+<script>
+  const carousel = document.getElementById('carousel-stack');
+  let cards = Array.from(carousel.querySelectorAll('.carousel-card'));
+
+  const resetClasses = (card) => {
+    card.classList.remove(
+      'left-0', 'left-[-160px]', 'right-[-160px]',
+      'rotate-[-5deg]', 'rotate-[5deg]',
+      'scale-100', 'scale-[0.95]',
+      'opacity-60',
+      'z-30', 'z-20', 'z-10'
+    );
+  };
+
+  function rotateCards() {
+    const first = cards.shift(); // geser depan ke belakang
+    cards.push(first);
+
+    cards.forEach((card, index) => {
+      resetClasses(card); // hapus semua class positioning lama
+
+      // Set ulang posisi dan gaya sesuai urutan
+      if (index === 0) {
+        card.classList.add(
+          'absolute', 'top-0', 'left-[-160px]',
+          'w-[250px]', 'h-[375px]',
+          'rotate-[-5deg]', 'scale-[0.95]', 'opacity-60', 'z-10'
+        );
+      } else if (index === 1) {
+        card.classList.add(
+          'absolute', 'top-0', 'left-0',
+          'w-[300px]', 'h-[450px]',
+          'scale-100', 'z-30'
+        );
+      } else if (index === 2) {
+        card.classList.add(
+          'absolute', 'top-0', 'right-[-160px]',
+          'w-[250px]', 'h-[375px]',
+          'rotate-[5deg]', 'scale-[0.95]', 'opacity-60', 'z-10'
+        );
+      }
+    });
+  }
+
+  // Auto-rotate
+  let autoRotate = setInterval(rotateCards, 3000);
+
+  // Click buat rotate manual
+  carousel.addEventListener('click', () => {
+    rotateCards();
+    clearInterval(autoRotate);
+    autoRotate = setInterval(rotateCards, 3000);
+  });
+</script>
 
 <style>
     @keyframes marquee {
