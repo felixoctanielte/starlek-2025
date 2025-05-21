@@ -266,12 +266,6 @@ $stages = array(
         </button>
     </div>
 
-    <!-- HEADER / NAVIGATION (placeholder) -->
-    <nav class="p-4 bg-transparent-500 text-white flex flex-wrap justify-center gap-6 text-lg">
-        <a href="/home" class="hover:underline">Home</a>
-        <a href="/division" class="hover:underline">Divisi</a>
-        <a href="/stages" class="hover:underline font-bold">Stages</a>
-    </nav>
 
     <!-- PRE-EVENT SECTION -->
     <section class="container mx-auto px-4 mb-20 mt-20">
