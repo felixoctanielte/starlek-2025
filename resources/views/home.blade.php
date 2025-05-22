@@ -40,26 +40,25 @@
            
         </div>
 
-        <!-- Sponsor Cards Carousel -->
-        <div class="mt-6 w-full overflow-hidden">
-            <div class="flex gap-6 flex-wrap justify-center items-center px-4 max-w-screen-xl mx-auto">
-                @php
-                    $sponsors = [
-                        'umnlogobiru.png',
-                        'umnlogobiru.png',
-                        'umnlogobiru.png',
-                        'umnlogobiru.png'
-                    ];
-                @endphp
+        <!-- Cards Carousel -->
+        <div class="flex justify-center items-center space-x-[-90px] hover:space-x-4 transition-all duration-500">
+            <!-- Kartu 1 -->
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[-15deg] hover:rotate-0 transition-all duration-500 group">
+                <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 1" class="object-cover w-full h-full">
 
-                @foreach ($sponsors as $index => $sponsor)
-                    <div class="w-[180px] h-[140px] bg-white/10 rounded-2xl overflow-hidden shadow-lg
-                                transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
-                        <img src="{{ asset('assets/images/' . $sponsor) }}" alt="Sponsor {{ $index }}"
-                             class="w-full h-full object-contain p-4 transition-all duration-500 filter blur-sm hover:blur-none" />
-                    </div>
-                @endforeach
             </div>
+
+            <!-- Kartu 2 -->
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[5deg] hover:rotate-0 transition-all duration-500 group z-10">
+                <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 2" class="object-cover w-full h-full">
+            </div>
+
+            <!-- Kartu 3 -->
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[25deg] hover:rotate-0 transition-all duration-500 group">
+                <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 3" class="object-cover w-full h-full">
+            </div>
+        </div>
+        <!-- End Cards Carousel -->
         </div>
     </div>
 </div>
@@ -98,7 +97,7 @@
     Kegiatan Mahasiswa Starlight mengupayakan dorongan bagi masyarakat untuk percaya akan 
     perkembangan bakat mereka masing masing.</p>
         </div>
-
+   <!-- End About Us Section -->
    
     
     <!-- Visi Misi Section -->
@@ -119,7 +118,7 @@
             </p>
         </div>
     </div>
-
+    <!-- End Visi Misi Section -->
             
 
 
@@ -134,7 +133,7 @@
                      class="w-[30rem] max-w-none h-auto object-contain" />
             </div>
     </div>
-
+    <!-- End Event Name and Logo -->
     </div>
 
    <!-- Concept Section -->
@@ -151,7 +150,7 @@
         </p>
     </div>
 </div>
-
+    <!-- End Concept Section -->
 
 
     <!-- Theme & Tagline Section -->
@@ -184,6 +183,7 @@
             </div>
         </div>
     </div>
+    <!-- End Theme & Tagline Section -->
 
 
 
@@ -212,6 +212,7 @@
         <img src="sponsor5.png" alt="Sponsor 5" class="h-10">
     </div>
 </div>
+ <!-- End Sponsored by Section -->
 
 
     <script>
