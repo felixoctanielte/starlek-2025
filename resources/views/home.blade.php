@@ -18,19 +18,70 @@
             overflow-x: hidden;
             }
         .section-bg {
-        background-color: rgba(0, 0, 0, 0.5); /* semi-transparan */
-        padding: 3rem 1rem;
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparan */
+            padding: 3rem 1rem;
+            border-radius: 1rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+        .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+        }
+
+        #carousel-stack {
+        overflow: visible; /* biar image yang di luar container bisa tampil tanpa nambah scroll */
+        max-width: 100vw; /* pastiin gak melebihi viewport */
+        }
+        .carousel-card {
+        /* ganti left/right negatif jadi transform translateX */
+        position: absolute;
+        top: 0;
+        width: 350px;
+        height: 450px;
         border-radius: 1rem;
-        margin: 2rem auto;
-        max-width: 1200px;
-    }
+        border: 2px solid #22d3ee; /* border-cyan-300 */
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        transition: all 0.7s ease;
+        }
+
+        .carousel-card.left {
+        left: 0;
+        transform: translateX(-160px) rotate(-5deg) scale(0.95);
+        opacity: 0.6;
+        z-index: 10;
+        }
+
+        .carousel-card.center {
+        left: 50%;
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        z-index: 30;
+        width: 300px;
+        height: 450px;
+        }
+
+        .carousel-card.right {
+        right: 0;
+        transform: translateX(160px) rotate(5deg) scale(0.95);
+        opacity: 0.6;
+        z-index: 10;
+        }
 
     </style>
 </head>
 <body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('assets/images/backgrounds.png');">
 
 <!-- Carousel Stacked Card Style -->
-<section class="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
+<section class="relative w-full h-[600px] flex items-center justify-center overflow-x-hidden overflow-y-visible">
   <div id="carousel-stack" class="relative w-[300px] h-[450px] cursor-pointer">
 
     <!-- Card Template (3 Cards) -->
@@ -294,6 +345,27 @@
                 }
             });
         }, 3000);
+
+        // Fade-in effect for elements with the class 'fade-in'
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
     </script>
 
     {{-- Footer --}}
