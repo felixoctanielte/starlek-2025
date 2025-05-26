@@ -92,7 +92,7 @@
           [
             'question' => 'APA KRITERIA DAN SYARAT MENDAFTAR SEBAGAI PESERTA STARLIGHT UMN 2025?',
             'answer' => '<ul class="list-disc list-inside space-y-1">
-                          <li>Peserta harus berumur 15-23 pada saat mendaftarkan diri atau kelompok</li>
+                          <li>Peserta harus berumur 15+ pada saat mendaftarkan diri atau kelompok</li>
                           <li>Peserta belum pernah mendapatkan gelar dalam kategori apapun (seperti juara 1, 2, 3, favorit, dll) di acara STARLIGHT sebelumnya</li>
                           <li>Peserta mengumpulkan video audisi sesuai deadline dan kriteria yang ditentukan</li>
                         </ul>',

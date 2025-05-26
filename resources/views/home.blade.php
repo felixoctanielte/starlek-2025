@@ -29,39 +29,50 @@
 <body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}')">
 <div>
 <!-- Sponsored by Section -->
-<div class="relative w-full h-[700px] overflow-hidden bg-cover bg-center"
-     style="background-image: url('{{ asset('assets/images/lindworm_text.png') }}')">
+<div class="relative w-full h-[700px] overflow-hidden bg-center bg-cover">
 
-    <!-- Overlay Content Full Height with content at bottom -->
-    <div class="relative z-10 h-full flex flex-col px-4">
+    <!-- Dynamic Blur Background -->
+    <div id="dynamic-bg"
+        class="absolute inset-0 bg-center bg-cover blur-lg transition-all duration-500 z-0"
+        style="background-image: url('{{ asset('images/profile1.jpg') }}');">
+    </div>
 
-        <!-- Title & Subtitle -->
-        <div class="text-center text-white mt-auto">
-           
-        </div>
+    <!-- Overlay Content Full Height -->
+    <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 pt-12">
 
         <!-- Cards Carousel -->
         <div class="flex justify-center items-center space-x-[-90px] hover:space-x-4 transition-all duration-500">
+
             <!-- Kartu 1 -->
-            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[-15deg] hover:rotate-0 transition-all duration-500 group">
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[-15deg] hover:rotate-0 transition-all duration-500 group"
+                onmouseenter="changeBG('{{ asset('images/profile1.jpg') }}')">
                 <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 1" class="object-cover w-full h-full">
-
             </div>
 
-            <!-- Kartu 2 -->
-            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[5deg] hover:rotate-0 transition-all duration-500 group z-10">
-                <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 2" class="object-cover w-full h-full">
+             <!-- Kartu 2 -->
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[5deg] hover:rotate-0 transition-all duration-500 group z-10"
+                onmouseenter="changeBG('{{ asset('images/bg1.jpg') }}')">
+                <img src="{{ asset('images/bg1.jpg') }}" alt="Foto 2" class="object-cover w-full h-full">
             </div>
+
 
             <!-- Kartu 3 -->
-            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[25deg] hover:rotate-0 transition-all duration-500 group">
-                <img src="{{ asset('images/profile1.jpg') }}" alt="Foto 3" class="object-cover w-full h-full">
+            <div class="relative w-44 h-60 rounded-xl shadow-xl overflow-hidden transform rotate-[25deg] hover:rotate-0 transition-all duration-500 group"
+                onmouseenter="changeBG('{{ asset('images/lindworm.png') }}')">
+                <img src="{{ asset('images/lindworm.png') }}" alt="Foto 3" class="object-cover w-full h-full">
             </div>
         </div>
         <!-- End Cards Carousel -->
-        </div>
+
     </div>
 </div>
+<!-- JS Background Changer -->
+<script>
+    function changeBG(url) {
+        const bg = document.getElementById('dynamic-bg');
+        bg.style.backgroundImage = `url('${url}')`;
+    }
+</script>
 
 
 

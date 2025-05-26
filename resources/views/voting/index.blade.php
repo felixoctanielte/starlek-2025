@@ -58,7 +58,7 @@
     </div>
 </body>
 
-<!-- Script voting -->
+<!-- Script voting
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('voteModal');
@@ -122,4 +122,4 @@
             modal.classList.remove('flex');
         });
     });
-</script>
+</script> -->
