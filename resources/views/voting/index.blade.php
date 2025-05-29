@@ -9,7 +9,7 @@
     <title>Voting</title>
 </head>
 
-<body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('{{ asset('assets/images/backgrounds.png') }}');">
+<body class="text-white bg-no-repeat bg-cover bg-center" style="background-image: url('{{ asset('assets/images/bg_panjaang.png') }}');">
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-3xl font-bold mb-8 text-center text-white">Save Your Isthara!</h1>
 
@@ -56,14 +56,27 @@
             </div>
         </div>
     </div>
+
+    <!-- Already Voted Modal -->
+    <div id="alreadyVotedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-96 text-center">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Sudah Voting</h2>
+            <p class="text-gray-600 mb-6">Kamu sudah melakukan voting sebelumnya. Terima kasih!</p>
+            <button id="closeAlreadyVotedBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Tutup</button>
+        </div>
+    </div>
+
 </body>
 
-<!-- Script voting
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById('voteModal');
+        const voteModal = document.getElementById('voteModal');
         const cancelBtn = document.getElementById('cancelVoteBtn');
         const confirmBtn = document.getElementById('confirmVoteBtn');
+
+        const alreadyVotedModal = document.getElementById('alreadyVotedModal');
+        const closeAlreadyVotedBtn = document.getElementById('closeAlreadyVotedBtn');
 
         let currentForm = null;
 
@@ -72,19 +85,20 @@
                 e.preventDefault();
 
                 if (localStorage.getItem('hasVoted')) {
-                    alert('Kamu sudah vote!');
+                    alreadyVotedModal.classList.remove('hidden');
+                    alreadyVotedModal.classList.add('flex');
                     return;
                 }
 
                 currentForm = form;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
+                voteModal.classList.remove('hidden');
+                voteModal.classList.add('flex');
             });
         });
 
         cancelBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            voteModal.classList.add('hidden');
+            voteModal.classList.remove('flex');
             currentForm = null;
         });
 
@@ -118,8 +132,13 @@
                 alert('Gagal vote. Silakan coba lagi.');
             });
 
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            voteModal.classList.add('hidden');
+            voteModal.classList.remove('flex');
+        });
+
+        closeAlreadyVotedBtn.addEventListener('click', function () {
+            alreadyVotedModal.classList.add('hidden');
+            alreadyVotedModal.classList.remove('flex');
         });
     });
-</script> -->
+</script>
