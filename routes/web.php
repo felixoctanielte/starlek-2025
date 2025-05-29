@@ -43,10 +43,6 @@ Route::get('/profile', function () {
     return 'Dummy profile route'; 
 })->name('profile');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('isthara', IstharaController::class);
 });
