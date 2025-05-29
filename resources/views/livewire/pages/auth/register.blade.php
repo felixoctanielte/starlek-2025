@@ -43,7 +43,7 @@ new #[Layout('layouts.guest')] class extends Component
     <x-text-input
         wire:model="name"
         id="name"
-        class="block mt-1 w-full bg-white/20 text-white placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
+        class="block mt-1 w-full bg-white/20 text-white font-semibold placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
         type="text"
         name="name"
         required
@@ -58,7 +58,7 @@ new #[Layout('layouts.guest')] class extends Component
     <x-text-input
         wire:model="email"
         id="email"
-        class="block mt-1 w-full bg-white/20 text-white placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
+        class="block mt-1 w-full bg-white/20 text-white font-semibold placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
         type="email"
         name="email"
         required
@@ -72,7 +72,7 @@ new #[Layout('layouts.guest')] class extends Component
     <x-text-input
         wire:model="password"
         id="password"
-        class="block mt-1 w-full bg-white/20 text-white placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
+        class="block mt-1 w-full bg-white/20 text-white font-semibold placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
         type="password"
         name="password"
         required
@@ -86,7 +86,7 @@ new #[Layout('layouts.guest')] class extends Component
     <x-text-input 
         wire:model="form.password"
         id="password"
-        class="block mt-1 w-full bg-white/20 text-white placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
+        class="block mt-1 w-full bg-white/20 text-white font-semibold placeholder-white/70 border border-white/30 backdrop-blur-md focus:ring-2 focus:ring-white focus:outline-none rounded-lg"
         type="password"
         name="password"
         placeholder="Konfirmasi Password"
@@ -97,11 +97,12 @@ new #[Layout('layouts.guest')] class extends Component
 </div>
 
         <div class="mt-4 flex flex-col items-center justify-center gap-2">
-            <x-primary-button class="bg-white text-gray-800 hover:bg-gray-100 font-semibold">
+            <x-primary-button class="bg-yellow text-white font-semibold">
                 {{ __('Register') }}
             </x-primary-button>
 
-            <a class="underline text-sm text-white hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <a
+                class="underline text-sm sm:text-base text-white hover:text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             href="{{ route('login') }}"
             wire:navigate>
                 {{ __('Already registered?') }}
